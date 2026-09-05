@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDFIND</title>
+<style>
+  html,body{
+    margin:0; padding:0; height:100%;
+    background:#0F1B2A;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Roboto Slab', Georgia, serif;
+    overflow:hidden;
+  }
+  .logo-wrap{
+    display:flex; flex-direction:column; align-items:center;
+    animation: fadeIn 1.2s ease-out;
+  }
+  .pulse-dot{
+    width:16px; height:16px; border-radius:50%;
+    background:#FF6B4A; margin-bottom:22px;
+    animation: pulse 1.6s infinite;
+  }
+  .logo-text{
+    font-size:52px; font-weight:700; color:#EAF0F6; letter-spacing:-0.01em;
+  }
+  .tagline{
+    margin-top:14px; font-family:'Inter',sans-serif; font-size:15px;
+    color:#92A6BC; letter-spacing:0.02em;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,107,74,.55);}
+    70%{box-shadow:0 0 0 22px rgba(255,107,74,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,107,74,0);}
+  }
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(8px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+</style>
+</head>
+<body>
+
+  <div class="logo-wrap">
+    <div class="pulse-dot"></div>
+    <div class="logo-text">MEDFIND</div>
+    <div class="tagline">When every minute matters.</div>
+  </div>
+
+  <script>
+    // Show this splash for exactly 2 minutes, then move to the main site.
+    // Change 'home.html' below to your actual site file name once ready.
+    setTimeout(function () {
+      window.location.href = "home.html";
+    }, 120000);
+  </script>
+
+</body>
+</html>
 
