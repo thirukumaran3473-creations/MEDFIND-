@@ -17,9 +17,34 @@
     animation: fadeIn 1.2s ease-out;
   }
   .pulse-dot{
-    width:16px; height:16px; border-radius:50%;
-    background:#FF6B4A; margin-bottom:22px;
-    animation: pulse 1.6s infinite;
+    width:110px; height:110px; border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #4ADE80, #16A34A 70%);
+    margin-bottom:28px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    animation: pulse 1.8s infinite;
+    box-shadow: 0 8px 24px rgba(22,163,74,0.35);
+  }
+  .pulse-dot::before{
+    content:"";
+    position:absolute;
+    width:44px; height:14px;
+    background:#F3FBF6;
+    border-radius:4px;
+  }
+  .pulse-dot::after{
+    content:"";
+    position:absolute;
+    width:14px; height:44px;
+    background:#F3FBF6;
+    border-radius:4px;
+  }
+  .heartbeat-ring{
+    position:absolute;
+    width:150px; height:150px;
+    border-radius:50%;
+    border:2px solid rgba(74,222,128,0.35);
+    animation: ringExpand 1.8s infinite;
   }
   .logo-text{
     font-size:52px; font-weight:700; color:#EAF0F6; letter-spacing:-0.01em;
@@ -29,9 +54,13 @@
     color:#92A6BC; letter-spacing:0.02em;
   }
   @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(255,107,74,.55);}
-    70%{box-shadow:0 0 0 22px rgba(255,107,74,0);}
-    100%{box-shadow:0 0 0 0 rgba(255,107,74,0);}
+    0%{box-shadow:0 0 0 0 rgba(74,222,128,.5), 0 8px 24px rgba(22,163,74,0.35);}
+    70%{box-shadow:0 0 0 34px rgba(74,222,128,0), 0 8px 24px rgba(22,163,74,0.35);}
+    100%{box-shadow:0 0 0 0 rgba(74,222,128,0), 0 8px 24px rgba(22,163,74,0.35);}
+  }
+  @keyframes ringExpand{
+    0%{transform:scale(0.9); opacity:0.8;}
+    100%{transform:scale(1.35); opacity:0;}
   }
   @keyframes fadeIn{
     from{opacity:0; transform:translateY(8px);}
@@ -42,7 +71,10 @@
 <body>
 
   <div class="logo-wrap">
-    <div class="pulse-dot"></div>
+    <div style="position:relative; display:flex; align-items:center; justify-content:center; margin-bottom:28px;">
+      <div class="heartbeat-ring"></div>
+      <div class="pulse-dot" style="margin-bottom:0;"></div>
+    </div>
     <div class="logo-text">MEDFIND</div>
     <div class="tagline">When every minute matters.</div>
   </div>
@@ -57,4 +89,3 @@
 
 </body>
 </html>
-
