@@ -17,34 +17,45 @@
     animation: fadeIn 1.2s ease-out;
   }
   .pulse-dot{
-    width:110px; height:110px; border-radius:50%;
+    width:150px; height:150px; border-radius:50%;
     background: radial-gradient(circle at 35% 30%, #4ADE80, #16A34A 70%);
     margin-bottom:28px;
     display:flex; align-items:center; justify-content:center;
     position:relative;
-    animation: pulse 1.8s infinite;
+    animation: pulse 1.8s infinite, beat 1.8s infinite;
     box-shadow: 0 8px 24px rgba(22,163,74,0.35);
   }
   .pulse-dot::before{
     content:"";
     position:absolute;
-    width:44px; height:14px;
+    width:60px; height:18px;
     background:#F3FBF6;
-    border-radius:4px;
+    border-radius:5px;
   }
   .pulse-dot::after{
     content:"";
     position:absolute;
-    width:14px; height:44px;
+    width:18px; height:60px;
     background:#F3FBF6;
-    border-radius:4px;
+    border-radius:5px;
   }
   .heartbeat-ring{
     position:absolute;
-    width:150px; height:150px;
+    width:200px; height:200px;
     border-radius:50%;
     border:2px solid rgba(74,222,128,0.35);
     animation: ringExpand 1.8s infinite;
+  }
+  .spin-ring{
+    position:absolute;
+    width:230px; height:230px;
+    border-radius:50%;
+    border:3px dashed #4ADE80;
+    animation: spin 4s linear infinite;
+  }
+  @keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
   }
   .logo-text{
     font-size:52px; font-weight:700; color:#EAF0F6; letter-spacing:-0.01em;
@@ -62,6 +73,16 @@
     0%{transform:scale(0.9); opacity:0.8;}
     100%{transform:scale(1.35); opacity:0;}
   }
+  @keyframes ringExpand2{
+    0%{transform:scale(0.8); opacity:0.6;}
+    100%{transform:scale(1.5); opacity:0;}
+  }
+  @keyframes beat{
+    0%, 100%{transform:scale(1);}
+    25%{transform:scale(1.12);}
+    40%{transform:scale(0.96);}
+    55%{transform:scale(1.08);}
+  }
   @keyframes fadeIn{
     from{opacity:0; transform:translateY(8px);}
     to{opacity:1; transform:translateY(0);}
@@ -72,7 +93,9 @@
 
   <div class="logo-wrap">
     <div style="position:relative; display:flex; align-items:center; justify-content:center; margin-bottom:28px;">
+      <div class="spin-ring"></div>
       <div class="heartbeat-ring"></div>
+      <div class="heartbeat-ring" style="animation: ringExpand2 1.8s infinite 0.5s;"></div>
       <div class="pulse-dot" style="margin-bottom:0;"></div>
     </div>
     <div class="logo-text">MEDFIND</div>
